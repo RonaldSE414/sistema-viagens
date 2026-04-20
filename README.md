@@ -1,9 +1,9 @@
 # ✈️ Sistema de Viagens
 
 ## 📌 Descrição
-Sistema de gerenciamento de viagens desenvolvido em Java com interface gráfica (Swing) e banco de dados PostgreSQL.
+Sistema de gerenciamento de viagens desenvolvido em **Java (Swing)** com integração ao **PostgreSQL**.
 
-O sistema permite cadastrar, listar, atualizar e excluir reservas, relacionando clientes e destinos, evitando duplicações no banco de dados.
+O sistema permite realizar operações completas de **CRUD** (Criar, Ler, Atualizar e Deletar) de reservas, relacionando **clientes** e **destinos**, além de evitar duplicações no banco de dados.
 
 ---
 
@@ -16,16 +16,16 @@ O sistema permite cadastrar, listar, atualizar e excluir reservas, relacionando 
 ---
 
 ## ⚙️ Funcionalidades
-- Cadastro de clientes e viagens
-- Listagem com JOIN (cliente + destino + reserva)
-- Atualização de reservas
-- Exclusão de reservas
-- Interface gráfica (bônus do trabalho)
+- Cadastro de clientes e viagens  
+- Listagem de reservas com JOIN (cliente + destino + reserva)  
+- Atualização de reservas  
+- Exclusão de reservas  
+- Interface gráfica (Swing)  
 
 ---
 
 ## 🗂️ Estrutura do Projeto
-
+```
 SistemaViagens/
 │
 ├── diagrama/
@@ -34,11 +34,12 @@ SistemaViagens/
 ├── dql/
 ├── src/
 └── README.md
+```
 
 ---
 
 ## 🧱 DDL - Criação das Tabelas
-
+```sql
 CREATE TABLE clientes (
     id_cliente SERIAL PRIMARY KEY,
     nome VARCHAR(100),
@@ -60,9 +61,12 @@ CREATE TABLE reserva (
     fk_id_cliente INT REFERENCES clientes(id_cliente),
     fk_id_destino INT REFERENCES destino(id_destino)
 );
+```
 
-##🧪 DML - Inserção / Atualização / Exclusão
+---
 
+## 🧪 DML - Inserção / Atualização / Exclusão
+```sql
 -- INSERT CLIENTE
 INSERT INTO clientes (nome, email, telefone)
 VALUES ('João Silva', 'joao@email.com', '99999-9999');
@@ -83,9 +87,12 @@ WHERE id_reserva = 1;
 -- DELETE
 DELETE FROM reserva
 WHERE id_reserva = 1;
+```
+
+---
 
 ## 🔎 DQL - Consulta com JOIN
-
+```sql
 SELECT 
     r.id_reserva,
     c.nome,
@@ -98,45 +105,49 @@ SELECT
 FROM reserva r
 JOIN clientes c ON r.fk_id_cliente = c.id_cliente
 JOIN destino d ON r.fk_id_destino = d.id_destino;
+```
 
-##📷 Prints da Aplicação
+---
 
-🏠 Menu Principal
+## 📷 Prints da Aplicação
 
+### 🏠 Menu Principal
 (coloque aqui o print)
 
-📝 Cadastro
-
+### 📝 Cadastro
 (coloque aqui o print)
 
-📋 Listagem com JOIN
-
+### 📋 Listagem com JOIN
 (coloque aqui o print)
 
-##🚀 Como Executar
-1. Criar banco no PostgreSQL
+---
 
+## 🚀 Como Executar
+
+### 1. Criar o banco de dados
+```sql
 CREATE DATABASE sistema_viagens;
+```
 
-2. Executar o DDL
-
+### 2. Executar o DDL
 Execute o script de criação das tabelas acima.
 
-3. Configurar conexão
+### 3. Configurar a conexão
 
-No arquivo Conexao.java:
+No arquivo `Conexao.java`:
+```java
 String url = "jdbc:postgresql://localhost:5432/sistema_viagens";
 String user = "postgres";
 String password = "SUA_SENHA";
+```
 
-4. Rodar o projeto
-   
-Abrir no NetBeans
-Executar a classe Main.java
+> ⚠️ Substitua `"SUA_SENHA"` pela senha do seu PostgreSQL local.
 
-##👨‍💻 Autor
+### 4. Rodar o projeto
+- Abrir no NetBeans  
+- Executar a classe `Main.java`
 
+---
+
+## 👨‍💻 Autor
 Ronald Machado Guimarães de Sousa
-
-
-
