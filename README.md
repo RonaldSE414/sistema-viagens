@@ -27,13 +27,23 @@ O sistema permite realizar operações completas de **CRUD** (Criar, Ler, Atuali
 ## 🗂️ Estrutura do Projeto
 ```
 SistemaViagens/
-│
-├── diagrama/
-├── ddl/
-├── dml/
-├── dql/
-├── src/
-└── README.md
+ ├── pom.xml
+ ├── README.md
+ ├── src/
+ │    └── main/
+ │         └── java/
+ │              └── com/mycompany/sistemaviagens/
+ │                   ├── Main.java
+ │                   ├── Tela.java
+ │                   ├── Conexao.java
+ │                   └── ViagemDAO.java
+ │
+ ├── database/
+ │    ├── ddl.sql
+ │    ├── dml.sql
+ │    ├── dql.sql
+ │    └── diagramas(DER)
+ │      
 ```
 
 ---
