@@ -163,13 +163,16 @@ SELECT * FROM reserva;
 ## 📷 Prints da Aplicação
 
 ### 🏠 Menu Principal
-(coloque aqui o print)
+<img width="600" alt="Captura de tela 2026-04-20 005133" src="https://github.com/user-attachments/assets/4e10097c-d937-4836-849b-55a09cd26c92" />
+
 
 ### 📝 Cadastro
-(coloque aqui o print)
+<img width="600" alt="Captura de tela 2026-04-20 005312" src="https://github.com/user-attachments/assets/06263170-8029-448b-ac8d-87e19e288f52" />
+<img width="600" alt="Captura de tela 2026-04-20 005337" src="https://github.com/user-attachments/assets/14353d29-8a1d-4991-8592-24ca43b4e50b" />
+
 
 ### 📋 Listagem com JOIN
-(coloque aqui o print)
+<img width="600" alt="Captura de tela 2026-04-20 005409" src="https://github.com/user-attachments/assets/71c3f754-93cc-4cfa-b335-583189567755" />
 
 ---
 
