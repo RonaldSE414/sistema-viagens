@@ -8,7 +8,7 @@ O sistema permite realizar operações completas de **CRUD** (Criar, Ler, Atuali
 ---
 
 ## 💻 Tecnologias Utilizadas
-- Java (Swing)
+- Java 25(Swing)
 - PostgreSQL
 - JDBC
 - Maven
