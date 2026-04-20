@@ -42,7 +42,7 @@ SistemaViagens/
  │    ├── ddl.sql
  │    ├── dml.sql
  │    ├── dql.sql
- │    └── diagramas(DER)
+ │    └── diagrama(DER)
  │      
 ```
 
@@ -77,37 +77,69 @@ CREATE TABLE reserva (
 
 ## 🧪 DML - Inserção / Atualização / Exclusão
 ```sql
--- INSERT CLIENTE
+-- INSERT(INSERIR DADOS)
+-- CLIENTES
 INSERT INTO clientes (nome, email, telefone)
-VALUES ('João Silva', 'joao@email.com', '99999-9999');
+VALUES 
+('João Silva', 'joao@email.com', '99999-1111'),
+('Maria Souza', 'maria@email.com', '98888-2222'),
+('Carlos Lima', 'carlos@email.com', '97777-3333'),
+('Ana Pereira', 'ana@email.com', '96666-4444');
 
--- INSERT DESTINO
+-- DESTINOS
 INSERT INTO destino (cidade, pais)
-VALUES ('Paris', 'França');
+VALUES 
+('São Paulo', 'Brasil'),
+('Rio de Janeiro', 'Brasil'),
+('Paris', 'França'),
+('Lisboa', 'Portugal');
 
--- INSERT RESERVA
+-- RESERVAS 
 INSERT INTO reserva (data_viagem, status, fk_id_cliente, fk_id_destino)
-VALUES ('2026-12-10', 'Confirmado', 1, 1);
+VALUES 
+('2026-05-10', 'Confirmada', 1, 1),
+('2026-06-15', 'Pendente', 2, 3),
+('2026-07-20', 'Cancelada', 3, 2),
+('2026-08-05', 'Confirmada', 4, 4);
 
--- UPDATE
+-- UPDATE(ATUALIZAR)
+-- Atualizar telefone de um cliente
+UPDATE clientes
+SET telefone = '98888-0000'
+WHERE id_cliente = 1;
+
+-- Atualizar status de uma reserva
 UPDATE reserva
-SET status = 'Cancelado'
-WHERE id_reserva = 1;
+SET status = 'Cancelada'
+WHERE id_reserva = 2;
 
--- DELETE
+-- Atualizar cidade de destino
+UPDATE destino
+SET cidade = 'Rio de Janeiro'
+WHERE id_destino = 1;
+
+-- DELETE(APAGAR)
+-- Deletar uma reserva
 DELETE FROM reserva
-WHERE id_reserva = 1;
+WHERE id_reserva = 2;
+
+-- Deletar um cliente
+DELETE FROM clientes
+WHERE id_cliente = 2;
+
+-- Deletar um destino
+DELETE FROM destino
+WHERE id_destino = 2;
 ```
 
 ---
 
 ## 🔎 DQL - Consulta com JOIN
 ```sql
+-- Listar todas as reservas completas
 SELECT 
     r.id_reserva,
-    c.nome,
-    c.email,
-    c.telefone,
+    c.nome AS cliente,
     d.cidade,
     d.pais,
     r.data_viagem,
@@ -115,6 +147,15 @@ SELECT
 FROM reserva r
 JOIN clientes c ON r.fk_id_cliente = c.id_cliente
 JOIN destino d ON r.fk_id_destino = d.id_destino;
+
+-- Ver clientes
+SELECT * FROM clientes;
+
+-- Ver destinos
+SELECT * FROM destino;
+
+-- Ver reservas
+SELECT * FROM reserva;
 ```
 
 ---
